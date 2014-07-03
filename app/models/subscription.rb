@@ -6,5 +6,7 @@ class Subscription < ActiveRecord::Base
 	validates_presence_of :user
 	validates_presence_of :feed
 
+	validates_uniqueness_of :user_id, message: "Subscription already exists"
+
 
 end
