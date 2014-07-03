@@ -6,20 +6,23 @@
 
 
       <fieldset class="large-12 columns center">
-          <legend>Get lunch special updates from your favorite local spots</legend>
+          <legend class='text-center'>Get lunch updates from your favorite local spots</legend>
 
             <div class='row'>
               <div class='large-12 columns'>
 
                     <%= form_tag({controller: 'subscriptions', action: 'create'}) do %>
-                      <%= text_field_tag(:email, nil, placeholder: 'enter email here') %>
+                    <%= text_field_tag(:email, nil, placeholder: 'enter email here') %>
 
-                      <%= submit_tag("GO", class: "button postfix") %>
+              <div class='row'>
+                <div class='large-4 columns'>
+                    <%= submit_tag("GO", class: "button postfix") %>
                     <% end %>
-
+                </div>
               </div>
+                    
             </div>
+          </div>
       </fieldset>
-
 
 </div>
