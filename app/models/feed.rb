@@ -1,8 +1,6 @@
 class Feed < ActiveRecord::Base
 
-	has_many :users
-
 	has_many :subscriptions
-
+  has_many :users, through: :subscriptions
 
 end
