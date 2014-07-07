@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title></title>
+
+
+      <%= "Hello, #{@email}" %>
+
+      <h1> Here are your specials for the day: </h1>
+
+      <h1><%= "#{@day_description}" %></h1>
+      <h1><%= "Description: #{@description}" %></h1>
+
+      <%= @specials.each do |special| %>
+
+        <h3><%= special %></h3>
+
+      <% end %>
+
+  </body>
+</html>
+
