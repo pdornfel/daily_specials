@@ -8,15 +8,16 @@
 
       <%= "Hello, #{@email}" %>
 
-      <h1> Here are your specials for the day: </h1>
+      <h1><%= "Here are your specials for the day: #{@time}" %></h1>
 
-      <h1><%= "#{@day_description}" %></h1>
-      <h1><%= "Description: #{@description}" %></h1>
+      <% @specials.each do |special| %>
 
-      <%= @specials.each do |special| %>
-
-        <h3><%= special %></h3>
-
+        <h1><%= special.feed.name %>
+        <h2><%= special.description %></h2>
+        <h2><%= special.day_description %></h2>
+        <br>
+        <br>
+        
       <% end %>
 
   </body>
