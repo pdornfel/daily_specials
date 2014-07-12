@@ -31,6 +31,8 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'pry-rails'
   gem 'quiet_assets'
+  gem "binding_of_caller"
+  gem "better_errors"
 end
 
 gem 'twilio-ruby'
