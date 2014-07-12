@@ -4,6 +4,7 @@ class SqueakyBeaker
   attr_accessor :day, :special
 
   def initialize
+    Feed.find_or_create_by(name:'Squeaky Beaker', url: "http://www.squeakybeaker.com/")
   end
 
   def get_special_from_web

@@ -2,7 +2,7 @@ namespace :message do
 
 
   desc "populate specials from feeds"
-  task populate_and_send_messages: :environment do
+  task go: :environment do
 
     #populate specials table
     sq = SqueakyBeaker.new
@@ -11,18 +11,17 @@ namespace :message do
 
     #get list of users
     users = User.all
+
+    #send emails
     users.each do |user|
-        UserMailer.send_specials(user).deliver
-      end
+      UserMailer.email_specials(user).deliver
+    end
+
+    #send text messages
+    users.each do |user|
+      TwilioHelper.new.text_specials(user)
+    end
 
   end
 
 end
-
-
-
-
-
-
-
-      # specials = [{description: subscription.feed.specials.last.description, day_description: subscription.feed.specials.last.day_description}]

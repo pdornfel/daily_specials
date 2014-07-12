@@ -6,7 +6,9 @@ class SubscriptionsController < ApplicationController
 
 
 	def create
-		user = User.find_or_create_by(email: email_params)
+
+		user = User.find_or_create_by(subscription_params)
+		binding.pry
 		subscription = user.subscriptions.create
 		subscription.feed = Feed.find_or_create_by(name: 'Squeaky Beaker', url: "http://www.squeakybeaker.com/")
 		if subscription.save
@@ -21,9 +23,13 @@ class SubscriptionsController < ApplicationController
 
 	private
 
-	def email_params
-		params.require(:email)
+	def subscription_params
+		binding.pry
+		params.require(:email, :phone_number)
 	end
 
 
 end
+
+
+# params.require(:contact).permit(:name, :contact_photo, :latitude, :longitude)
