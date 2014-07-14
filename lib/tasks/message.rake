@@ -1,27 +1,29 @@
-namespace :message do
-
+namespace :feeds do
 
   desc "populate specials from feeds"
-  task go: :environment do
+  task :scrape => :environment do
+    Feed.scrape_specials
+  end
 
-    #populate specials table
-    sq = SqueakyBeaker.new
-    sq.get_special_from_web
-    sq.populate_special_table
-
-    #get list of users
-    users = User.all
-
-    #send emails
-    users.each do |user|
+  desc "send emails"
+  task :send_emails => :environment do 
+    User.all.each do |user|
       UserMailer.email_specials(user).deliver
-    end
+    end    
+  end
 
-    #send text messages
-    users.each do |user|
+  desc "send texts"
+  task :send_emails => :environment do 
+    User.all.each do |user|
       TwilioHelper.new.text_specials(user)
     end
+  end
 
+  desc "scrape and send"
+  task :scrape_and_send => :environment do
+    Rake::Task['feeds:scrape'].invoke
+    Rake::Task['feeds:send_emails'].invoke
+    Rake::Task['feeds:send_texts'].invoke
   end
 
 end

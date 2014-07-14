@@ -1,0 +1,10 @@
+<%= form_for @feed do |f| %>
+  
+  <%= f.text_field :name, :placeholder => 'Name' %>
+  <%= f.text_area :description, :placeholder => 'Description' %> 
+  <%= f.text_field :url, :placeholder => 'URL' %>
+  <%= f.text_field :day_selector, :placeholder => 'CSS selector to find the day.' %>
+  <%= f.text_field :special_selector, :placeholder => 'CSS selector to find the special.' %>
+  <%= f.submit %>
+
+<% end %>

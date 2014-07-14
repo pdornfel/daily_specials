@@ -1,0 +1,7 @@
+<div class="feed">
+  <h2><%= link_to feed.name, feed_path(feed) %></h2>
+  <p>Subscribers: <%= feed.subscriber_count %></p>
+  <p>Description: <%= feed.description %></p>
+  <h4>Latest Special:</h4>
+  <%= render feed.latest_special %>
+</div>
