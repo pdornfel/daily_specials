@@ -1,0 +1,6 @@
+<%= render @feed %>
+
+<% unless @feed.previous_specials.empty?%>
+  <h4> Previous Specials </h4>
+  <%= render @feed.previous_specials%>
+<% end %>

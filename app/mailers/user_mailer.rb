@@ -11,7 +11,7 @@ class UserMailer < ActionMailer::Base
 
       if !user.subscriptions.empty? && Special.last != Special.last[-2]
 	  	  user.subscriptions.each do |subscription|
-	    	  @specials << subscription.get_todays_special
+	    	  @specials << subscription.latest_special
 	    	  mail(to: @email, subject: 'Your daily specials are herea')
 	      end
 	    end

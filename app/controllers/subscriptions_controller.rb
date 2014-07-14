@@ -1,7 +1,7 @@
 class SubscriptionsController < ApplicationController
 
 	def index
-	  	@subscription = User.new
+	  @subscription = User.new
 	end
 
 
