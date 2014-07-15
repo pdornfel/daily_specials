@@ -20,3 +20,5 @@
 
 #Ignore database.yml
 /config/database.yml
+/config/twilio.yml
+#/config/secrets.yml

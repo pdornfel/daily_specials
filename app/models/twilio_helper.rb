@@ -1,15 +1,13 @@
-require 'twilio-ruby' 
-
 class TwilioHelper
 
 	def initialize
 		# put your own credentials here 
-		account_sid = ENV['account_sid']
-		auth_token = ENV['auth_token']
+		account_sid = TWILIO_CONFIG[:twilio_account_sid]
+		auth_token = TWILIO_CONFIG[:twilio_auth_token]
 
 
 		# set up a client to talk to the Twilio REST API 
-		@client = Twilio::REST::Client.new account_sid, auth_token  
+		@client = Twilio::REST::Client.new(account_sid, auth_token)
 	end
 
 	def text_specials(user)
