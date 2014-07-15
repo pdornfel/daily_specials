@@ -5,17 +5,13 @@
 
     <title></title>
 
-
-      <%= "Hello, #{@email}" %>
-
-      <h1><%= "Here are your specials for the day: #{@time}" %></h1>
-
+  
+      <p>Hello <b><%=@user.email%></b>! Here are your specials for <%= @date %>.</p>
+      
       <% @specials.each do |special| %>
 
-        <h1><%= special.feed.name %>
-        <h2><%= special.day_description %></h2>
-        <h2><%= special.description %></h2>
-        <br>
+        <h2><%= special.feed_name %></h2>
+        <%= render special %>
         
       <% end %>
 

@@ -1,3 +1,9 @@
 development:
   twilio_account_sid: 'exmaple_twilio_account_sid'
   twilio_auth_token: 'exmaple_twilio_auth_token'
+  twilio_from_phone_number: '+18572541160'
+
+test:
+  twilio_account_sid: 'exmaple_twilio_account_sid'
+  twilio_auth_token: 'exmaple_twilio_auth_token'
+  twilio_from_phone_number: '+18572541160'

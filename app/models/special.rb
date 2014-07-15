@@ -4,9 +4,11 @@ class Special < ActiveRecord::Base
   belongs_to :feed
   belongs_to :subscription
 
-  def from_today?
-    created_at.to_date == Date.today
-  end
+  delegate :name, :url,  :to => :feed, :prefix => true
 
+
+  def self.from_today
+    where("created_at >= ?", Time.zone.now.beginning_of_day)
+  end
 
 end

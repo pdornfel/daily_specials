@@ -12,23 +12,17 @@ class TwilioHelper
 
 	def text_specials(user)
 
-		phone_number = user.phone_number
-		specials = []
-		formatted_text = ""
+		body_text = "Here are your Specials for Today: "
 
-		user.subscriptions.each do |subscription|
-			specials << subscription.get_todays_special
-		end
-
-		specials.each do |special| 
-			formatted_text.concat("#{special.feed.name} - #{special.day_description} - #{special.description}")
+		user.latest_specials.each do |special| 
+			formatted_text += "#{special.feed_name} - #{special.day_description} - #{special.description},")
 		end
 
 		if !user.subscriptions.empty? && Special.last != Special.last[-2]
 			@client.account.messages.create({
-				:from => '+18572541160', 
-				:to => phone_number, 
-				:body => "Here are your Specials for Today: #{formatted_text}",  
+				:from => TWILIO_CONFIG[:twilio_from_phone_number],
+				:to => user.phone_number, 
+				:body => body_text,  
 			})
 		end
 	end

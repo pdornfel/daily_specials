@@ -31,7 +31,7 @@ class Feed < ActiveRecord::Base
   end
 
   def scrape_special
-    unless latest_special && latest_special.from_today?
+    if specials.from_today.empty?
       doc = Nokogiri::HTML(open(url))
       day = doc.css(day_selector).text
       special = doc.css(special_selector).text

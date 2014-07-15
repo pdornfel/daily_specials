@@ -10,8 +10,9 @@ Rails.application.configure do
   config.eager_load = false
 
   #config mailcatcher to catch emails in development
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = { :address => "localhost", :port => 1025 }
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.smtp_settings = { :address => "localhost", :port => 1025 }
+  config.action_mailer.delivery_method = :letter_opener
 
   # Show full error reports and disable caching.
   config.consider_all_requests_local       = true
