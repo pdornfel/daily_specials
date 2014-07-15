@@ -6,17 +6,13 @@ namespace :feeds do
   end
 
   desc "send emails"
-  task :send_emails => :environment do 
-    User.all.each do |user|
-      UserMailer.email_specials(user).deliver
-    end    
+  task :send_emails => :environment do
+    User.send_emails
   end
 
   desc "send texts"
-  task :send_emails => :environment do 
-    User.all.each do |user|
-      TwilioHelper.new.text_specials(user)
-    end
+  task :send_texts => :environment do
+    User.send_texts
   end
 
   desc "scrape and send"

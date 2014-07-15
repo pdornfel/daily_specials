@@ -1,18 +1,17 @@
 class UserMailer < ActionMailer::Base
 
-  default from: "info@daily_specials.com"
-
+  default from: "pdornfeld@leaf.me"
 
   	def email_specials(user)
 
-      @email = user.email
+      @user = user
       @specials = []
-      @time = DateTime.now.strftime('%B %d, %Y')
+      @date = DateTime.now.strftime('%A, %B %d, %Y')
 
       if !user.subscriptions.empty? && Special.last != Special.last[-2]
 	  	  user.subscriptions.each do |subscription|
 	    	  @specials << subscription.latest_special
-	    	  mail(to: @email, subject: 'Your daily specials are herea')
+	    	  mail(to: @user.email, subject: 'Your daily specials are here!')
 	      end
 	    end
     end
