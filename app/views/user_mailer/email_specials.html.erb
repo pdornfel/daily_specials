@@ -5,15 +5,17 @@
 
     <title></title>
 
-  
+
       <p>Hello <b><%=@user.email%></b>! Here are your specials for <%= @date %>.</p>
-      
+
       <% @specials.each do |special| %>
 
         <h2><%= special.feed_name %></h2>
         <%= render special %>
-        
+
       <% end %>
+
+      <h3><%= link_to("Destroy Subscriptions",subscription_path(@user), method: :delete)%></h3>
 
   </body>
 </html>
