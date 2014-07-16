@@ -15,7 +15,7 @@ class TwilioHelper
 		body_text = "Here are your Specials for Today: "
 
 		user.latest_specials.each do |special|
-			body_text += "#{special.feed_name} => #{special.day_description} => #{special.description},"
+			body_text += "#{special.feed_name} => #{special.day_description} - #{special.description},"
 		end
 
 		if !user.subscriptions.empty? && Special.last != Special.last[-2]
