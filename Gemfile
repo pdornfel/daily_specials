@@ -45,6 +45,7 @@ gem 'rails_12factor'
 gem 'nokogiri'
 gem 'simple_form'
 gem 'foundation-rails'
+gem 'figaro'
 
 ruby "2.1.2"
 

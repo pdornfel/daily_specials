@@ -2,8 +2,8 @@ class TwilioHelper
 
 	def initialize
 		# put your own credentials here
-		account_sid = TWILIO_CONFIG[:twilio_account_sid]
-		auth_token = TWILIO_CONFIG[:twilio_auth_token]
+		account_sid = ENV['twilio_account_sid']
+		auth_token = ENV['twilio_auth_token']
 
 
 		# set up a client to talk to the Twilio REST API
@@ -20,7 +20,7 @@ class TwilioHelper
 
 		if !user.subscriptions.empty? && Special.last != Special.last[-2]
 			@client.account.messages.create({
-				:from => TWILIO_CONFIG[:twilio_from_phone_number],
+				:from => ENV['twilio_from_phone_number'],
 				:to => user.phone_number,
 				:body => body_text,
 			})
