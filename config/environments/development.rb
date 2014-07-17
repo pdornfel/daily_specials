@@ -9,6 +9,9 @@ Rails.application.configure do
   # Do not eager load code on boot.
   config.eager_load = false
 
+  # config host for development
+  config.action_mailer.default_url_options = { host: 'localhost:3000' }
+
   #config mailcatcher to catch emails in development
   # config.action_mailer.delivery_method = :smtp
   # config.action_mailer.smtp_settings = { :address => "localhost", :port => 1025 }
