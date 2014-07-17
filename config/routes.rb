@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   resources :subscriptions, :only => [:create, :index, :destroy]
   resources :feeds, :only => [:index, :new, :create, :edit, :update, :show]
 
+  get 'subscriptions/:id' => 'subscriptions#destroy'
+
 end
