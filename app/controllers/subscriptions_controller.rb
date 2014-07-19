@@ -2,6 +2,7 @@ class SubscriptionsController < ApplicationController
 
 	def index
 	  @subscription = User.new
+	  @feeds = Feed.all
 	end
 
 

@@ -15,6 +15,20 @@
                     <%= text_field_tag(:email, nil, placeholder: 'enter email here') %>
                     <%= text_field_tag(:phone_number, nil, placeholder: 'enter phone number here') %>
 
+
+              <div class="row">
+                <div class="large-12 columns">
+                  <label>Which updates do you want?</label>
+
+                  <% @feeds.each do |feed| %>
+                    <%= check_box_tag(feed.name) %>
+                    <%= label_tag(feed.name) %>
+                  <% end %>
+
+                </div>
+              </div>
+
+
               <div class='row'>
                 <div class='large-6 large-centered columns'>
                     <%= submit_tag("GO", class: "button postfix") %>
