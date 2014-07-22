@@ -21,7 +21,7 @@
                   <label>Which updates do you want?</label>
 
                   <% @feeds.each do |feed| %>
-                    <%= check_box_tag(feed.name) %>
+                    <%= check_box_tag('feed[]', feed.id, checked=false) %>
                     <%= label_tag(feed.name) %>
                   <% end %>
 

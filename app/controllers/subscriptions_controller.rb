@@ -10,14 +10,17 @@ class SubscriptionsController < ApplicationController
 		user = User.new(email: params[:email], phone_number: params[:phone_number])
 		if user.valid?
 			user = User.find_or_create_by(email: params[:email], phone_number: params[:phone_number])
-				subscription = user.subscriptions.create
-				subscription.feed = Feed.find_or_create_by(name: 'Squeaky Beaker', url: "http://www.squeakybeaker.com/")
-				subscription.save
-
+				if params[:feed]
+						params[:feed].each do |feed_id|
+							subscription = user.subscriptions.create
+							subscription.feed = Feed.find(feed_id)
+							subscription.save
+						end
+				end
 				flash[:notice] = "Congrats - youre signed up"
 				redirect_to subscriptions_path
 		else
-			flash[:warning] = "Please enter your phone number and email"
+			flash[:warning] = user.errors.full_messages
 			redirect_to subscriptions_path
 		end
 	end
