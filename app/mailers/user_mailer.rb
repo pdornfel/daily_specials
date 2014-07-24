@@ -8,11 +8,8 @@ class UserMailer < ActionMailer::Base
       @specials = []
       @date = DateTime.now.strftime('%A, %B %d, %Y')
 
-      if !user.subscriptions.empty? && Special.last != Special.last[-2]
-	  	  user.subscriptions.each do |subscription|
-	    	  @specials << subscription.latest_special
+      if !user.feeds.empty?
 	    	  mail(to: @user.email, subject: 'Your daily specials are here!')
-	      end
 	    end
     end
 

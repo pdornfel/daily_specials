@@ -6,12 +6,15 @@
     <title></title>
 
 
-      <p>Hello <b><%=@user.email%></b>! Here are your specials for <%= @date %>.</p>
+      <p>Hello <b><%=@user.email%></b>! Here were your specials for the week.</p>
 
-      <% @specials.each do |special| %>
+      <% @user.feeds.each do |feed| %>
+        <h2><%= feed.name %>:</h2>
 
-        <h2><%= special.feed_name %></h2>
-        <%= render special %>
+          <% feed.specials.each do |special| %>
+            <%= render special %>
+
+          <% end %>
 
       <% end %>
 

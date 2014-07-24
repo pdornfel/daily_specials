@@ -46,6 +46,7 @@ gem 'nokogiri'
 gem 'simple_form'
 gem 'foundation-rails'
 gem 'figaro'
+gem 'chronic'
 
 ruby "2.1.2"
 

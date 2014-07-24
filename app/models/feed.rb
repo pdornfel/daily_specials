@@ -1,11 +1,8 @@
 class Feed < ActiveRecord::Base
 
   has_many :subscriptions, dependent: :destroy
-  
   has_many :users, through: :subscriptions
-
   has_many :specials
-
   validates_presence_of :name, :url, :day_selector, :special_selector
 
   after_find :scrape_special
@@ -20,6 +17,10 @@ class Feed < ActiveRecord::Base
 
   def latest_special
     specials.last
+  end
+
+  def specials_for_the_week
+    specials.where('created_at >= :five_days_ago', :five_days_ago => Chronic.parse('5 days ago'))
   end
 
   def previous_specials
