@@ -11,7 +11,7 @@
       <% @user.feeds.each do |feed| %>
         <h2><%= feed.name %>:</h2>
 
-          <% feed.specials.each do |special| %>
+          <% feed.specials_for_the_week.each do |special| %>
             <%= render special %>
 
           <% end %>

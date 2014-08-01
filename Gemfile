@@ -38,6 +38,7 @@ group :development, :test do
   gem 'quiet_assets'
   gem "binding_of_caller"
   gem "better_errors"
+  gem 'shoulda'
 end
 
 gem 'twilio-ruby'
