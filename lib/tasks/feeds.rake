@@ -18,7 +18,7 @@ namespace :feeds do
   desc "scrape and send"
   task :scrape_and_send => :environment do
 
-    if !Time.now.saturday? || !Time.now.sunday?
+  unless Time.now.saturday? || Time.now.sunday?
       Rake::Task['feeds:scrape'].invoke
       Rake::Task['feeds:send_texts'].invoke
   end
