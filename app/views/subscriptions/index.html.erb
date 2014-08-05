@@ -12,8 +12,8 @@
               <div class='large-8 large-centered columns'>
 
                     <%= form_tag({controller: 'subscriptions', action: 'create'}) do %>
-                    <%= text_field_tag(:email, nil, placeholder: 'enter email here') %>
-                    <%= text_field_tag(:phone_number, nil, placeholder: 'enter phone number here') %>
+                    <%= email_field(:email, nil, placeholder: 'enter email here') %>
+                    <%= telephone_field(:phone_number, nil, placeholder: 'enter phone number here') %>
 
 
               <div class="row">

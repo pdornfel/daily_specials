@@ -7,9 +7,11 @@ class SubscriptionsController < ApplicationController
 
 
 	def create
-		user = User.new(email: params[:email], phone_number: params[:phone_number])
+		email = params[:email].first
+		phone_number = params[:phone_number].first
+		user = User.new(email: email, phone_number: phone_number)
 		if user.valid?
-			user = User.find_or_create_by(email: params[:email], phone_number: params[:phone_number])
+			user = User.find_or_create_by(email: email, phone_number: phone_number)
 				if params[:feed]
 						params[:feed].each do |feed_id|
 							subscription = user.subscriptions.create
